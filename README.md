@@ -1,6 +1,13 @@
 CSL '0401' Binary Disassembly Notes
 ======
 
+## Disassembly Tools
+This project uses [Ghidra](https://ghidra-sre.org) which is a very powerful open source Software Reverse Engineering (SRE) toolset developed by the NSA.
+  
+This project also relies on the [following files](https://github.com/NationalSecurityAgency/ghidra/commit/fafd1bb00aaca30ee546de0485896ba4de1bacab) which have been enhanced to add the appropriate CPU32 support.
+
+Once Ghidra has been installed and the CPU32 support added the project files can be opened.
+
 ## Reference Documents  
 Below are details of the reference documents provided:
 
