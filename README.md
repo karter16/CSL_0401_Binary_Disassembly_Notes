@@ -1,7 +1,7 @@
 CSL '0401' Binary Disassembly Notes
 ======
 
-**Reference Documents**  
+## Reference Documents  
 Below are details of the reference documents provided:
 
 [CPU32RM.pdf](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/blob/master/CPU32RM.pdf): This is the reference document for the CPU32 architecture that the MSS54HP processors are based on. Useful for referencing instructions, etc.
