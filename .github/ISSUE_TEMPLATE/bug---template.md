@@ -1,5 +1,5 @@
 ---
-name: Bug - Template
+name: Bug
 about: Used to report a bug with an existing item identified in disassembly
 title: "[BUG]"
 labels: bug
