@@ -1,5 +1,12 @@
 CSL '0401' Binary Disassembly Notes
 ======
+## Welcome
+Welcome to this project which seeks to progress the understanding of the CSL '0401' program binary.
+
+## How to Contribute
+To contribute to this project please use the "Issues" feature to report discoveries of new information and bugs (issues identified with existing information). If you have general questions or would like to discuss particular items in general please use the "Discussions" feature.
+
+At present the Ghidra project file is available for download. Any additions / changes you make to it will need to be reported back as a "Discovery" using the Issues feature. In the future this project will possibly use the Ghidra server functionality to make the master project file available to multiple contributors at once, but for now let's keep things simple.
 
 ## Disassembly Tools
 This project uses [Ghidra](https://ghidra-sre.org) which is a very powerful open source Software Reverse Engineering (SRE) toolset developed by the NSA.
