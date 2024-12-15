@@ -1,7 +1,7 @@
 ---
 name: Bug
 about: Used to report a bug with an existing item identified in disassembly
-title: "[BUG]"
+title: ''
 labels: bug
 assignees: ''
 
