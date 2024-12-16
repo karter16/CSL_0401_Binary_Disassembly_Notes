@@ -8,6 +8,14 @@ To contribute to this project please use the "Issues" feature to report discover
 
 At present the Ghidra project file is available for download. Any additions / changes you make to it will need to be reported back as a "Discovery" using the Issues feature. In the future this project will possibly use the Ghidra server functionality to make the master project file available to multiple contributors at once, but for now let's keep things simple.
 
+The most important thing to be aware of when inspecting the project file is that 3 binaries are loaded to it:
+
+Full 211323000401PD31_TERRA.bin
+Master
+Slave
+
+The first item is a load of the entire binary. The second and third are the Master and Slave components of the binary split out. The Master and Slave items are the ones that should be used for disassembly and discovery.
+
 ## Disassembly Tools
 This project uses [Ghidra](https://ghidra-sre.org) which is a very powerful open source Software Reverse Engineering (SRE) toolset developed by the NSA.
   
