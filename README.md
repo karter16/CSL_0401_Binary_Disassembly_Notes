@@ -13,7 +13,7 @@ This project uses [Ghidra](https://ghidra-sre.org) which is a very powerful open
   
 This project also relies on the [following files](https://github.com/NationalSecurityAgency/ghidra/commit/fafd1bb00aaca30ee546de0485896ba4de1bacab) which have been enhanced to add the appropriate CPU32 support (particularly the TBL lookup instructions).
 
-Once Ghidra has been installed and the CPU32 support added the project files can be opened.
+Once Ghidra has been installed and the CPU32 support added the [project files](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/blob/master/CSL_0401_Binary_Disassembly_2024_12_16.gar) can be opened.
 
 ## Reference Documents  
 Below are details of the reference documents provided:
