@@ -10,9 +10,9 @@ At present the Ghidra project file is available for download. Any additions / ch
 
 The most important thing to be aware of when inspecting the project file is that 3 binaries are loaded to it:
 
-Full 211323000401PD31_TERRA.bin
-Master
-Slave
+Full 211323000401PD31_TERRA.bin  
+Master  
+Slave  
 
 The first item is a load of the entire binary. The second and third are the Master and Slave components of the binary split out. The Master and Slave items are the ones that should be used for disassembly and discovery.
 
