@@ -20,8 +20,8 @@ The first item is a load of the entire binary. The second and third are the Mast
 This project makes use of the wiki feature.  
   
 [Identified Functions](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/wiki/Functions)  
-[Identified Variables](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/wiki/Global-Variables)
-[Unidentified Parameters/Curves/Maps](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/wiki/Unidentified-Maps,-Curves-&-Parameters)
+[Identified Variables](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/wiki/Global-Variables)  
+[Unidentified Parameters/Curves/Maps](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/wiki/Unidentified-Maps,-Curves-&-Parameters)  
 
 ## Disassembly Tools
 This project uses [Ghidra](https://ghidra-sre.org) which is a very powerful open source Software Reverse Engineering (SRE) toolset developed by the NSA.
