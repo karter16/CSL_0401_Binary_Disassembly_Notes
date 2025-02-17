@@ -20,12 +20,9 @@ The first item is a load of the entire binary. The second and third are the Mast
 This project makes use of the wiki feature.  
   
 [Identified Functions](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/wiki/Functions)  
-<<<<<<< HEAD
 [Identified Variables](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/wiki/Global-Variables)
-=======
 [Identified Variables](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/wiki/Global-Variables)  
 [Unidentified Parameters/Curves/Maps](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/wiki/Unidentified-Maps,-Curves-&-Parameters)  
->>>>>>> b866b2e (Update README.md)
 
 ## Disassembly Tools
 This project uses [Ghidra](https://ghidra-sre.org) which is a very powerful open source Software Reverse Engineering (SRE) toolset developed by the NSA.
@@ -43,4 +40,5 @@ Below are details of the reference documents provided:
   
 [Full 211323000401PD31_TERRA.bin](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/blob/master/Full%20211323000401PD31_TERRA.bin): The full 0401 binary (with Terra's bootloader modifications) copied here for reference/posterity.
   
-[MSS54 FunktionsRahmen](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/tree/master/MSS54%20Funktionsrahmen/Original%20(German)): The MSS54 funktionsrahmen documents for reference.
+[MSS54 Funktionsrahmen (Original German)](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/tree/master/MSS54%20Funktionsrahmen/Original%20(German)): The MSS54 funktionsrahmen documents for reference.
+[MSS54 Funktionsrahmen (Translated English)](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/tree/master/MSS54%20Funktionsrahmen/Translated%20(English)): The MSS54 funktionsrahmen documents translated to English for reference.
