@@ -40,5 +40,5 @@ Below are details of the reference documents provided:
   
 [Full 211323000401PD31_TERRA.bin](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/blob/master/Full%20211323000401PD31_TERRA.bin): The full 0401 binary (with Terra's bootloader modifications) copied here for reference/posterity.
   
-[MSS54 Funktionsrahmen (Original German)](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/tree/master/MSS54%20Funktionsrahmen/Original%20(German)): The MSS54 funktionsrahmen documents for reference.
+[MSS54 Funktionsrahmen (Original German)](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/tree/master/MSS54%20Funktionsrahmen/Original%20(German)): The MSS54 funktionsrahmen documents for reference.  
 [MSS54 Funktionsrahmen (Translated English)](https://github.com/karter16/CSL_0401_Binary_Disassembly_Notes/tree/master/MSS54%20Funktionsrahmen/Translated%20(English)): The MSS54 funktionsrahmen documents translated to English for reference.
