@@ -1,4 +1,4 @@
-<!-- Written 03/02/2025 20:34:18 -->
+<!-- Written 06/12/2025 11:17:44 -->
 <XDFFORMAT version="1.80">
   <XDFHEADER>
     <flags>0x1</flags>
@@ -55,7 +55,7 @@
     <CATEGORY index="0x35" name="Oelniveaugeber (Oil Level Sensor)" />
     <CATEGORY index="0x36" name="PDR (PDR)" />
     <CATEGORY index="0x37" name="Relativer_Oeffnungsquerschnitt (Relative Opening Cross-section)" />
-    <CATEGORY index="0x38" name="SA WE (Lambda Sensor Aging)" />
+    <CATEGORY index="0x38" name="SA_WE (Lambda Fuel Cutoff and Reinstatement)" />
     <CATEGORY index="0x39" name="SK-Momentenmanager (Safety Concept - Moment Manager)" />
     <CATEGORY index="0x3A" name="SK_FGR (Safety Concept - FGR)" />
     <CATEGORY index="0x3B" name="Saugstrahlpumpe (Suction Jet Pump)" />
@@ -74,7 +74,53 @@
     <CATEGORY index="0x48" name="SMG (SMG)" />
     <CATEGORY index="0x49" name="NOT found by search script" />
     <CATEGORY index="0x4B" name="DTC (Diagnostic Trouble Code)" />
+    <CATEGORY index="0x4C" name="KAD (Manifold Absolute Pressure)" />
+    <CATEGORY index="0x4D" name="ASK (CSL Intake Flap)" />
+    <CATEGORY index="0x4E" name="CSL RF Calcuation" />
+    <CATEGORY index="0x4F" name="EGBP (Exhuast Gas Back Pressure)" />
+    <CATEGORY index="0x50" name="Luftmasse (Air Mass)" />
   </XDFHEADER>
+  <XDFCONSTANT uniqueid="0x3F6F">
+    <title>k_rg_evan1_molmasse_min</title>
+    <description>k_rg_evan1_molmasse_min E6D4</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="81" />
+    <EMBEDDEDDATA mmedaddress="0xE6D4" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFFUNCTION uniqueid="0x7DF9" flags="0x0">
+    <title>KL_???_0401_DAT0008e604</title>
+    <description>KL_???_0401_DAT0008e604 E606</description>
+    <CATEGORYMEM index="0" category="30" />
+    <XDFAXIS id="x" uniqueid="0x0">
+      <EMBEDDEDDATA mmedaddress="0xE606" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <units>pressure</units>
+      <indexcount>6</indexcount>
+      <embedinfo type="1" />
+      <datatype>0</datatype>
+      <unittype>0</unittype>
+      <DALINK index="0" />
+      <MATH equation="X/32">
+        <VAR id="X" />
+      </MATH>
+    </XDFAXIS>
+    <XDFAXIS id="y" uniqueid="0x0">
+      <EMBEDDEDDATA mmedaddress="0xE612" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <indexcount>6</indexcount>
+      <embedinfo type="1" />
+      <datatype>0</datatype>
+      <unittype>0</unittype>
+      <DALINK index="0" />
+      <MATH equation="X">
+        <VAR id="X" />
+      </MATH>
+    </XDFAXIS>
+  </XDFFUNCTION>
   <XDFCONSTANT uniqueid="0x771" vislevel="10">
     <title>K_VERS_UP_M</title>
     <description>K_VERS_UP_M  8000&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;Created by find routine V0.55&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Matched Length:   MatchRatio: &#013;&#010;BlockFound: 0 NearbyBlockMatch: -1 Var: 1905 HasDuplicate?: No &#013;&#010;TXTEQ(x::$1 1 Masterprozessor :$2 1 Slaveprozesor :ELSE 1 undefiniert)&#013;&#010;Units- &quot;-&quot;  &#013;&#010;Function: Versionskontrolle  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
@@ -9126,6 +9172,18 @@
       </MATH>
     </XDFAXIS>
   </XDFTABLE>
+  <XDFCONSTANT uniqueid="0x27A2">
+    <title>k_bootloader_terra</title>
+    <description>k_bootloader_terra E002</description>
+    <CATEGORYMEM index="0" category="11" />
+    <EMBEDDEDDATA mmedaddress="0xE002" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x4145">
     <title>K_???_0401_DAT_0008a97a</title>
     <description>K_???_0401_DAT_0008a97a A97A</description>
@@ -9162,33 +9220,6 @@
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
-  <XDFFUNCTION uniqueid="0x1295" flags="0x0">
-    <title>KL_???_0401_DAT0008a980</title>
-    <description>KL_???_0401_DAT0008a980 A982</description>
-    <CATEGORYMEM index="0" category="11" />
-    <XDFAXIS id="x" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xA982" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
-      <indexcount>8</indexcount>
-      <embedinfo type="1" />
-      <datatype>0</datatype>
-      <unittype>0</unittype>
-      <DALINK index="0" />
-      <MATH equation="X">
-        <VAR id="X" />
-      </MATH>
-    </XDFAXIS>
-    <XDFAXIS id="y" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xA992" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
-      <indexcount>8</indexcount>
-      <embedinfo type="1" />
-      <datatype>0</datatype>
-      <unittype>0</unittype>
-      <DALINK index="0" />
-      <MATH equation="X">
-        <VAR id="X" />
-      </MATH>
-    </XDFAXIS>
-  </XDFFUNCTION>
   <XDFCONSTANT uniqueid="0x24D8">
     <title>K_???_0401_DAT_0008a9a2</title>
     <description>K_???_0401_DAT_0008a9a2 A9A2</description>
@@ -9202,9 +9233,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x1C5C">
-    <title>K_???_0401_DAT_0008a9a3</title>
-    <description>K_???_0401_DAT_0008a9a3 A9A3</description>
+    <title>k_tan_m_cfg</title>
+    <description>k_tan_m_cfg A9A3</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="50" />
     <EMBEDDEDDATA mmedaddress="0xA9A3" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -9242,18 +9274,6 @@
     <description>K_???_0401_DAT_0008a9a8 A9A8</description>
     <CATEGORYMEM index="0" category="11" />
     <EMBEDDEDDATA mmedaddress="0xA9A8" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0xC42">
-    <title>K_???_0401_DAT_0008a9aa</title>
-    <description>K_???_0401_DAT_0008a9aa A9AA</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xA9AA" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -11040,9 +11060,9 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFCONSTANT uniqueid="0x2A90">
-    <title>k_rf_???_0401_DAT0008d200</title>
-    <description>k_rf_???_0401_DAT0008d200 D200</description>
-    <CATEGORYMEM index="0" category="11" />
+    <title>K_HFM_ML_INIT</title>
+    <description>K_HFM_ML_INIT D200&#013;&#010;&#013;&#010;Unused in 0401</description>
+    <CATEGORYMEM index="2" category="45" />
     <EMBEDDEDDATA mmedaddress="0xD200" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -11052,9 +11072,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x1CEE">
-    <title>k_rf_???_0401_DAT0008d201</title>
-    <description>k_rf_???_0401_DAT0008d201 D201</description>
+    <title>k_kad_ad_scalar</title>
+    <description>k_kad_ad_scalar D201</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="77" />
     <EMBEDDEDDATA mmedaddress="0xD201" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -11067,8 +11088,10 @@
     <title>k_p_kad_scaler</title>
     <description>k_p_kad_scaler D2EE&#013;&#010;&#013;&#010;CSL MAP sensor scale factor&#013;&#010;Volts/bar slope&#013;&#010;&#013;&#010;GM: Slope= 5.16v/bar : 100mbar offset</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="77" />
     <EMBEDDEDDATA mmedaddress="0xD2EE" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>&quot;V/bar&quot;</units>
+    <decimalpl>4</decimalpl>
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -11080,8 +11103,10 @@
     <title>k_p_kad_offset</title>
     <description>k_p_kad_offset D2F0&#013;&#010;&#013;&#010;CSL MAP sensor offset&#013;&#010;</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="77" />
     <EMBEDDEDDATA mmedaddress="0xD2F0" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>&quot;mbar&quot;</units>
+    <decimalpl>4</decimalpl>
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -11093,6 +11118,7 @@
     <title>k_p_kad_min</title>
     <description>k_p_kad_min D2F2&#013;&#010;&#013;&#010;CSL MAP sensor min value&#013;&#010;</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="77" />
     <EMBEDDEDDATA mmedaddress="0xD2F2" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>&quot;mbar&quot;</units>
     <datatype>0</datatype>
@@ -11106,6 +11132,7 @@
     <title>k_p_kad_max</title>
     <description>k_p_kad_max D2F4&#013;&#010;&#013;&#010;CSL MAP sensor max value&#013;&#010;</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="77" />
     <EMBEDDEDDATA mmedaddress="0xD2F4" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>&quot;mbar&quot;</units>
     <datatype>0</datatype>
@@ -11116,33 +11143,36 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x957">
-    <title>k_rf_???_0401_DAT0008d2f6</title>
-    <description>k_rf_???_0401_DAT0008d2f6 D2F6</description>
+    <title>k_p_kad_umg_diff_max_ans</title>
+    <description>k_p_kad_umg_diff_max_ans D2F6</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="77" />
     <EMBEDDEDDATA mmedaddress="0xD2F6" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
-    <MATH equation="X">
+    <MATH equation="X/32">
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x2679">
-    <title>k_rf_???_0401_DAT0008d2f8</title>
-    <description>k_rf_???_0401_DAT0008d2f8 D2F8</description>
+    <title>k_p_kad_umg_diff_max</title>
+    <description>k_p_kad_umg_diff_max D2F8</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="77" />
     <EMBEDDEDDATA mmedaddress="0xD2F8" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
-    <MATH equation="X">
+    <MATH equation="X/32">
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x2D2D">
-    <title>k_rf_(tdme_limit?)_0401</title>
-    <description>k_rf_(tdme_limit?)_0401 D2FA</description>
+    <title>k_p_kad_tdme_min</title>
+    <description>k_p_kad_tdme_min D2FA</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="77" />
     <EMBEDDEDDATA mmedaddress="0xD2FA" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -11992,6 +12022,7 @@
   <XDFFUNCTION uniqueid="0x4011" flags="0x0">
     <title>kl_tog_???_0401_DAT_0008c354</title>
     <description>kl_tog_???_0401_DAT_0008c354 C354</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xC356" mmedelementsizebits="16" mmedcolcount="2" mmedmajorstridebits="16" mmedminorstridebits="0" />
@@ -12019,6 +12050,7 @@
   <XDFCONSTANT uniqueid="0x63D8">
     <title>k_tog_???_0401_DAT_0008c35a</title>
     <description>k_tog_???_0401_DAT_0008c35a C35A</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC35A" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -12031,6 +12063,7 @@
   <XDFFUNCTION uniqueid="0xA97" flags="0x0">
     <title>kl_tog_???_0401_DAT0008c35c</title>
     <description>kl_tog_???_0401_DAT0008c35c C35E</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xC35E" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
@@ -12058,6 +12091,7 @@
   <XDFCONSTANT uniqueid="0xEE5">
     <title>k_tog_???_0401_DAT0008c376</title>
     <description>k_tog_???_0401_DAT0008c376 C376</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC376" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -12070,6 +12104,7 @@
   <XDFCONSTANT uniqueid="0x215B">
     <title>k_tog_???_0401_DAT0008c378</title>
     <description>k_tog_???_0401_DAT0008c378 C378</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC378" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -12082,6 +12117,7 @@
   <XDFCONSTANT uniqueid="0x1A7F">
     <title>k_tog_???_0401_DAT0008c37a</title>
     <description>k_tog_???_0401_DAT0008c37a C37A</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC37A" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -12094,6 +12130,7 @@
   <XDFCONSTANT uniqueid="0x5CCB">
     <title>k_tog_???_0401_DAT0008c37b</title>
     <description>k_tog_???_0401_DAT0008c37b C37B</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC37B" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -12106,6 +12143,7 @@
   <XDFCONSTANT uniqueid="0x32D0">
     <title>k_tog_???_0401_DAT0008c37c</title>
     <description>k_tog_???_0401_DAT0008c37c C37C</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC37C" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -12118,6 +12156,7 @@
   <XDFCONSTANT uniqueid="0x33F0">
     <title>k_tog_???_0401_DAT0008c37e</title>
     <description>k_tog_???_0401_DAT0008c37e C37E</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC37E" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -12130,6 +12169,7 @@
   <XDFCONSTANT uniqueid="0xD95">
     <title>k_tog_???_0401_DAT0008c380</title>
     <description>k_tog_???_0401_DAT0008c380 C380</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC380" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -12142,6 +12182,7 @@
   <XDFCONSTANT uniqueid="0x7961">
     <title>k_tog_???_0401_DAT0008c382</title>
     <description>k_tog_???_0401_DAT0008c382 C382</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC382" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -12154,6 +12195,7 @@
   <XDFCONSTANT uniqueid="0x2C70">
     <title>k_tog_(count_min)_0401</title>
     <description>k_tog_(count_min)_0401 C384</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC384" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -12311,6 +12353,7 @@
   <XDFCONSTANT uniqueid="0x189">
     <title>k_tog_(tmot_offset_for_lookup)_???_DAT_0008c3db</title>
     <description>k_tog_(tmot_offset_for_lookup)_???_DAT_0008c3db C3DB</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="54" />
     <EMBEDDEDDATA mmedaddress="0xC3DB" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -13901,8 +13944,8 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x53D4">
-    <title>k_tabg_???_0401_DAT0008c557</title>
-    <description>k_tabg_???_0401_DAT0008c557 C557</description>
+    <title>K_TABG_ERSATZ_OFFSET</title>
+    <description>K_TABG_ERSATZ_OFFSET C557</description>
     <CATEGORYMEM index="2" category="50" />
     <EMBEDDEDDATA mmedaddress="0xC557" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -13913,8 +13956,9 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x3477">
-    <title>k_tabg_???_0401_DAT0008c558</title>
-    <description>k_tabg_???_0401_DAT0008c558 C558</description>
+    <title>k_tabg_ersatz_offset_rg</title>
+    <description>k_tabg_ersatz_offset_rg C558</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="50" />
     <EMBEDDEDDATA mmedaddress="0xC558" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -13925,10 +13969,11 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x3097">
-    <title>k_tabg_???_0401_DAT0008c559</title>
-    <description>k_tabg_???_0401_DAT0008c559 C559</description>
+    <title>K_TABG_ERSATZ_START</title>
+    <description>K_TABG_ERSATZ_START C559</description>
     <CATEGORYMEM index="2" category="50" />
     <EMBEDDEDDATA mmedaddress="0xC559" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <units>s</units>
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -13937,8 +13982,9 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x8E1" vislevel="10">
-    <title>K_TABG_ERSATZ_START</title>
-    <description>K_TABG_ERSATZ_START  C55A&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Units- &quot;s&quot;  &#013;&#010;Function: Messwerte  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
+    <title>k_tabg_ersatz_start_rg</title>
+    <description>k_tabg_ersatz_start_rg  C55A&#013;&#010;</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="50" />
     <EMBEDDEDDATA mmedaddress="0xC55A" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>&quot;s&quot;</units>
@@ -13952,15 +13998,28 @@
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x8E3" vislevel="10">
     <title>K_TABG_ERSATZ_TMOT_OFFSET</title>
-    <description>K_TABG_ERSATZ_TMOT_OFFSET  C55C&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Units- &quot;&#248;C&quot;  &#013;&#010;Function: Messwerte  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
+    <description>K_TABG_ERSATZ_TMOT_OFFSET  C55B&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Units- &quot;&#248;C&quot;  &#013;&#010;Function: Messwerte  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
     <CATEGORYMEM index="2" category="50" />
-    <EMBEDDEDDATA mmedaddress="0xC55C" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <EMBEDDEDDATA mmedaddress="0xC55B" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>&quot;&#248;C&quot;</units>
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
     <MATH equation="x">
       <VAR id="x" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x6D57">
+    <title>k_tabg_ersatz_tmot_offset_rg</title>
+    <description>k_tabg_ersatz_tmot_offset_rg C55C</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="50" />
+    <EMBEDDEDDATA mmedaddress="0xC55C" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x8E2" vislevel="10">
@@ -14068,8 +14127,8 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x31D4">
-    <title>k_tabg_???_0401_DAT0008c56b</title>
-    <description>k_tabg_???_0401_DAT0008c56b C56B</description>
+    <title>K_TABG_ERSATZ_TAU_F_SLP</title>
+    <description>K_TABG_ERSATZ_TAU_F_SLP C56B</description>
     <CATEGORYMEM index="2" category="50" />
     <EMBEDDEDDATA mmedaddress="0xC56B" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -14080,8 +14139,9 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x6395">
-    <title>k_tabg_???_0401_DAT0008c56c</title>
-    <description>k_tabg_???_0401_DAT0008c56c C56C</description>
+    <title>k_tabg_ersatz_tau_f_slp_rg</title>
+    <description>k_tabg_ersatz_tau_f_slp_rg C56C</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="50" />
     <EMBEDDEDDATA mmedaddress="0xC56C" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
@@ -14091,23 +14151,11 @@
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x19DD">
-    <title>K_TABG_???_DAT0008C56D</title>
-    <description>K_TABG_???_DAT0008C56D C56D</description>
-    <CATEGORYMEM index="2" category="50" />
-    <EMBEDDEDDATA mmedaddress="0xC56D" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x8E6" vislevel="10">
     <title>K_TABG_ERSATZ_T_F_SLP</title>
-    <description>K_TABG_ERSATZ_T_F_SLP  C56E&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;Created by find routine V0.55&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Matched Length:   MatchRatio: 1.00&#013;&#010;BlockFound: 1 NearbyBlockMatch: -1 Var: 2278 HasDuplicate?: No &#013;&#010;Units- &quot;-&quot;  &#013;&#010;Function: Messwerte  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
+    <description>K_TABG_ERSATZ_T_F_SLP  C56D&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;Created by find routine V0.55&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Matched Length:   MatchRatio: 1.00&#013;&#010;BlockFound: 1 NearbyBlockMatch: -1 Var: 2278 HasDuplicate?: No &#013;&#010;Units- &quot;-&quot;  &#013;&#010;Function: Messwerte  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
     <CATEGORYMEM index="2" category="50" />
-    <EMBEDDEDDATA mmedaddress="0xC56E" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <EMBEDDEDDATA mmedaddress="0xC56D" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>&quot;-&quot;</units>
     <rangehigh>3.000000</rangehigh>
     <datatype>0</datatype>
@@ -14115,6 +14163,19 @@
     <DALINK index="0" />
     <MATH equation="x/64">
       <VAR id="x" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x19DD">
+    <title>k_tabg_ersatz_t_f_slp_rg</title>
+    <description>k_tabg_ersatz_t_f_slp_rg C56E</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="50" />
+    <EMBEDDEDDATA mmedaddress="0xC56E" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
   <XDFFUNCTION uniqueid="0x178" vislevel="10" flags="0x0">
@@ -14148,8 +14209,9 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x2552" flags="0x0">
-    <title>kl_tabg_???_0401_DAT0008c582</title>
-    <description>kl_tabg_???_0401_DAT0008c582 C584</description>
+    <title>kl_tabg_ersatz_tau_slp</title>
+    <description>kl_tabg_ersatz_tau_slp C584</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="50" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xC584" mmedelementsizebits="16" mmedcolcount="4" mmedmajorstridebits="16" mmedminorstridebits="0" />
@@ -14158,7 +14220,7 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/4">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
@@ -14169,14 +14231,27 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X*100">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
   </XDFFUNCTION>
+  <XDFCONSTANT uniqueid="0xC42">
+    <title>k_tmot_m_diff_max</title>
+    <description>k_tmot_m_diff_max A9AA</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="50" />
+    <EMBEDDEDDATA mmedaddress="0xA9AA" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X/100">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
   <XDFFUNCTION uniqueid="0x1099" flags="0x0">
-    <title>kl_tabg_???_0401_DAT0008c594</title>
-    <description>kl_tabg_???_0401_DAT0008c594 C596</description>
+    <title>KL_TABG_ERSATZ_TI</title>
+    <description>KL_TABG_ERSATZ_TI C596</description>
     <CATEGORYMEM index="2" category="50" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xC596" mmedelementsizebits="8" mmedcolcount="4" mmedmajorstridebits="8" mmedminorstridebits="0" />
@@ -14185,7 +14260,7 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/128">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
@@ -14196,13 +14271,15 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/128">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x5F09" flags="0x0">
-    <title>KL_TABG_ERSATZ_TI</title>
+    <title>kl_tabg_ersatz_ti_rg</title>
+    <description>kl_tabg_ersatz_ti_rg C59E</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="50" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xC5A0" mmedelementsizebits="8" mmedcolcount="4" mmedmajorstridebits="8" mmedminorstridebits="0" />
@@ -14228,8 +14305,8 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x1621" flags="0x0">
-    <title>kl_tabg_???_0401_DAT0008c5a8</title>
-    <description>kl_tabg_???_0401_DAT0008c5a8 C5AA</description>
+    <title>KL_TABG_ERSATZ_TZ</title>
+    <description>KL_TABG_ERSATZ_TZ C5AA</description>
     <CATEGORYMEM index="2" category="50" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xC5AA" mmedelementsizebits="16" mmedcolcount="4" mmedmajorstridebits="16" mmedminorstridebits="0" />
@@ -14238,8 +14315,8 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
-        <VAR id="X" />
+      <MATH equation="x/65535*100">
+        <VAR id="x" />
       </MATH>
     </XDFAXIS>
     <XDFAXIS id="y" uniqueid="0x0">
@@ -14249,13 +14326,15 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/128">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x2AC9" flags="0x0">
-    <title>KL_TABG_ERSATZ_TZ</title>
+    <title>kl_tabg_ersatz_tz_rg</title>
+    <description>kl_tabg_ersatz_tz_rg C5BA</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="50" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xC5BC" mmedelementsizebits="16" mmedcolcount="4" mmedmajorstridebits="16" mmedminorstridebits="0" />
@@ -14280,12 +14359,41 @@
       </MATH>
     </XDFAXIS>
   </XDFFUNCTION>
-  <XDFFUNCTION uniqueid="0x595A" flags="0x0">
-    <title>kl_tabg_???_0401_DAT0008c5cc</title>
-    <description>kl_tabg_???_0401_DAT0008c5cc C5Ce</description>
+  <XDFFUNCTION uniqueid="0x1295" flags="0x0">
+    <title>KL_TANM_PT1_INIT</title>
+    <description>KL_TANM_PT1_INIT A982</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="50" />
     <XDFAXIS id="x" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xC5CE" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <EMBEDDEDDATA mmedaddress="0xA982" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <indexcount>8</indexcount>
+      <embedinfo type="1" />
+      <datatype>0</datatype>
+      <unittype>0</unittype>
+      <DALINK index="0" />
+      <MATH equation="X">
+        <VAR id="X" />
+      </MATH>
+    </XDFAXIS>
+    <XDFAXIS id="y" uniqueid="0x0">
+      <EMBEDDEDDATA mmedaddress="0xA992" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <indexcount>8</indexcount>
+      <embedinfo type="1" />
+      <datatype>0</datatype>
+      <unittype>0</unittype>
+      <DALINK index="0" />
+      <MATH equation="X/10000">
+        <VAR id="X" />
+      </MATH>
+    </XDFAXIS>
+  </XDFFUNCTION>
+  <XDFFUNCTION uniqueid="0x595A" flags="0x0">
+    <title>kl_tabg_stand_rg</title>
+    <description>kl_tabg_stand_rg C5E8</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="50" />
+    <XDFAXIS id="x" uniqueid="0x0">
+      <EMBEDDEDDATA mmedaddress="0xC5E8" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>6</indexcount>
       <embedinfo type="1" />
       <datatype>0</datatype>
@@ -14296,23 +14404,23 @@
       </MATH>
     </XDFAXIS>
     <XDFAXIS id="y" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xC5D8" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <EMBEDDEDDATA mmedaddress="0xC5F4" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>6</indexcount>
       <embedinfo type="1" />
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/1024">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x118" vislevel="10" flags="0x0">
     <title>KL_TABG_STAND</title>
-    <description>KL_TABG_STAND  C5F4&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;Created by find routine V0.55&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Matched Length:   MatchRatio: 0.56&#013;&#010;BlockFound: 1 NearbyBlockMatch: -1 Var: 280 HasDuplicate?: No &#013;&#010;Units- X: &quot;min&quot; Y: &quot;-&quot;  &#013;&#010;Named- X: tabg_ Function: Messwerte  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
+    <description>KL_TABG_STAND  C5CC&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;Created by find routine V0.55&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Matched Length:   MatchRatio: 0.56&#013;&#010;BlockFound: 1 NearbyBlockMatch: -1 Var: 280 HasDuplicate?: No &#013;&#010;Units- X: &quot;min&quot; Y: &quot;-&quot;  &#013;&#010;Named- X: tabg_ Function: Messwerte  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
     <CATEGORYMEM index="2" category="50" />
     <XDFAXIS id="x" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xC5E8" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <EMBEDDEDDATA mmedaddress="0xC5CE" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>&quot;min&quot;</units>
       <indexcount>6</indexcount>
       <outputtype>2</outputtype>
@@ -14325,7 +14433,7 @@
       </MATH>
     </XDFAXIS>
     <XDFAXIS id="y" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xC5F4" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <EMBEDDEDDATA mmedaddress="0xC5DA" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>6</indexcount>
       <decimalpl>3</decimalpl>
       <embedinfo type="1" />
@@ -14368,8 +14476,8 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFTABLE uniqueid="0x738D" flags="0x0">
-    <title>kf_tabg_???_0401_DAT0008c64a</title>
-    <description>kf_tabg_???_0401_DAT0008c64a C64C</description>
+    <title>KF_TABG_ERSATZ</title>
+    <description>KF_TABG_ERSATZ  C65E&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;Created by find routine V0.55&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Matched Length:   MatchRatio: 0.21&#013;&#010;BlockFound: 1 NearbyBlockMatch: -1 Var: 115 HasDuplicate?: No &#013;&#010;Units- X: &quot;Upm&quot; Y: &quot;-&quot; Z: &quot;&#248;C&quot; &#013;&#010;Named- X: n Y: rf &#013;&#010;Function: Messwerte  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
     <CATEGORYMEM index="2" category="50" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xC64C" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
@@ -14389,7 +14497,7 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/1000">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
@@ -14399,7 +14507,7 @@
       <min>0.000000</min>
       <max>255.000000</max>
       <outputtype>1</outputtype>
-      <MATH equation="X">
+      <MATH equation="X/16">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
@@ -14416,8 +14524,9 @@
     </MATH>
   </XDFCONSTANT>
   <XDFTABLE uniqueid="0x73" vislevel="10" flags="0x0">
-    <title>KF_TABG_ERSATZ</title>
-    <description>KF_TABG_ERSATZ  C65E&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;Created by find routine V0.55&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Matched Length:   MatchRatio: 0.21&#013;&#010;BlockFound: 1 NearbyBlockMatch: -1 Var: 115 HasDuplicate?: No &#013;&#010;Units- X: &quot;Upm&quot; Y: &quot;-&quot; Z: &quot;&#248;C&quot; &#013;&#010;Named- X: n Y: rf &#013;&#010;Function: Messwerte  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
+    <title>kf_tabg_ersatz_rg</title>
+    <description>kf_tabg_ersatz_rg  C682</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="50" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xC684" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
@@ -14457,9 +14566,10 @@
     </XDFAXIS>
   </XDFTABLE>
   <XDFTABLE uniqueid="0x952" vislevel="10" flags="0x30">
-    <title>KF_RF_(CSL_AlphaN_Main)_0401</title>
-    <description>KF_RF_(CSL_AlphaN_Main)_0401 D2FE</description>
+    <title>kf_rf_alpha_n</title>
+    <description>kf_rf_alpha_n D2FE</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xD2FE" mmedelementsizebits="16" mmedcolcount="20" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>&quot;Upm&quot;</units>
@@ -14497,9 +14607,10 @@
     </XDFAXIS>
   </XDFTABLE>
   <XDFTABLE uniqueid="0x6F82" vislevel="10" flags="0x0">
-    <title>KF_RF_(CSL_AlphaN_Kath)_0401</title>
-    <description>KF_RF_(CSL_AlphaN_Kath)_0401 D718&#013;&#010;</description>
+    <title>kf_rf_alpha_n_kath</title>
+    <description>kf_rf_alpha_n_kath D718&#013;&#010;</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xD718" mmedelementsizebits="16" mmedcolcount="20" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>&quot;Upm&quot;</units>
@@ -14537,9 +14648,10 @@
     </XDFAXIS>
   </XDFTABLE>
   <XDFTABLE uniqueid="0x2761" vislevel="10" flags="0x0">
-    <title>KF_RF_(CSL_AlphaN_Flap_Adder)_0401</title>
-    <description>KF_RF_(CSL_AlphaN_Flap_Adder)_0401 DB32</description>
+    <title>kf_rf_alpha_n_ask</title>
+    <description>kf_rf_alpha_n_ask DB32</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xDB32" mmedelementsizebits="16" mmedcolcount="20" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>&quot;Upm&quot;</units>
@@ -14576,10 +14688,37 @@
       </MATH>
     </XDFAXIS>
   </XDFTABLE>
+  <XDFFUNCTION uniqueid="0x21A9" flags="0x0">
+    <title>KL_AQ_ABS_LLS</title>
+    <description>KL_AQ_ABS_LLS E014</description>
+    <CATEGORYMEM index="2" category="56" />
+    <XDFAXIS id="x" uniqueid="0x0">
+      <EMBEDDEDDATA mmedaddress="0xE014" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <indexcount>8</indexcount>
+      <embedinfo type="1" />
+      <datatype>0</datatype>
+      <unittype>0</unittype>
+      <DALINK index="0" />
+      <MATH equation="X">
+        <VAR id="X" />
+      </MATH>
+    </XDFAXIS>
+    <XDFAXIS id="y" uniqueid="0x0">
+      <EMBEDDEDDATA mmedaddress="0xE024" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <indexcount>8</indexcount>
+      <embedinfo type="1" />
+      <datatype>0</datatype>
+      <unittype>0</unittype>
+      <DALINK index="0" />
+      <MATH equation="X">
+        <VAR id="X" />
+      </MATH>
+    </XDFAXIS>
+  </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x1BA0" flags="0x0">
-    <title>kl_aq_rel_wdk</title>
-    <description>kl_aq_rel_wdk E036</description>
-    <CATEGORYMEM index="0" category="11" />
+    <title>KL_AQ_ABS_WDK</title>
+    <description>KL_AQ_ABS_WDK E036</description>
+    <CATEGORYMEM index="2" category="56" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE036" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>8</indexcount>
@@ -14606,9 +14745,10 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x953" flags="0x0">
-    <title>kl_aq_rel_lls</title>
-    <description>kl_aq_rel_lls E058</description>
+    <title>kl_aq_rel_alpha_n_fakt</title>
+    <description>kl_aq_rel_alpha_n_fakt E058</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE058" mmedelementsizebits="16" mmedcolcount="12" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>rpm</units>
@@ -14625,20 +14765,20 @@
     <XDFAXIS id="y" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE070" mmedelementsizebits="16" mmedcolcount="12" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>12</indexcount>
-      <outputtype>2</outputtype>
       <embedinfo type="1" />
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/32768">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFTABLE uniqueid="0x436B" flags="0x0">
-    <title>kf_pressure_loss_n_p_loss_???</title>
-    <description>kf_pressure_loss_n_p_loss_??? E090</description>
+    <title>kf_p_kad_m_kvd</title>
+    <description>kf_p_kad_m_kvd E090</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="77" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE090" mmedelementsizebits="16" mmedcolcount="20" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>rpm</units>
@@ -14677,9 +14817,10 @@
     </XDFAXIS>
   </XDFTABLE>
   <XDFTABLE uniqueid="0x1AB9" flags="0x0">
-    <title>kf_pressure_loss_n_p_umg_from_map_???</title>
-    <description>kf_pressure_loss_n_p_umg_from_map_??? E25E&#013;&#010;&#013;&#010;e25c is the start&#013;&#010;e25e is start of cols (20)&#013;&#010;e286 is start of rows (10)&#013;&#010;e29a is start of data</description>
+    <title>kf_p_kad_m_kad</title>
+    <description>kf_p_kad_m_kad E25E&#013;&#010;&#013;&#010;e25c is the start&#013;&#010;e25e is start of cols (20)&#013;&#010;e286 is start of rows (10)&#013;&#010;e29a is start of data</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="77" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE25E" mmedelementsizebits="16" mmedcolcount="20" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>rpm</units>
@@ -14721,6 +14862,7 @@
     <title>k_rf_cfg</title>
     <description>k_rf_cfg E5E4&#013;&#010;&#013;&#010;k_rf_cfg is used to configure the behaviour of the RF calculation.&#013;&#010;&#013;&#010;bit 0 = 1: RF is calculated directly from rf_p_ask (RF from Manifold Air Pressure)&#013;&#010;&#013;&#010;if bit 0 &lt;&gt; 1 THEN&#013;&#010;&#013;&#010;bit 2 = 1: RF is calculated directly from 0x00FFEDEA (TBC what this is)&#013;&#010;&#013;&#010;if (bit 2 &lt;&gt; 1) THEN&#013;&#010;&#013;&#010;RF is calculated from rf_filter_korr (AlphaN) multiplied by rf_tabg_faktor&#013;&#010;&#013;&#010;if (bit 4 = 1) THEN&#013;&#010;&#013;&#010;RF is set to rf_filter_korr_tabg_fakt + rf_p_ask_i (integral component from MAP sensor is included)</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <EMBEDDEDDATA mmedaddress="0xE5E4" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>-</units>
     <outputtype>3</outputtype>
@@ -14736,6 +14878,7 @@
     <title>k_rf_start</title>
     <description>k_rf_start E5E8&#013;&#010;&#013;&#010;This parameter defines the RF value to be used when the vehicle is in Operating Mode B_START.</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <EMBEDDEDDATA mmedaddress="0xE5E8" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>%rf</units>
     <decimalpl>1</decimalpl>
@@ -14750,6 +14893,7 @@
     <title>k_ml_start</title>
     <description>k_ml_start E5EA&#013;&#010;&#013;&#010;This parameter defines the ML value to be used when the vehicle is in Operating Mode B_START.</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <EMBEDDEDDATA mmedaddress="0xE5EA" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>kg/h</units>
     <decimalpl>1</decimalpl>
@@ -14764,6 +14908,7 @@
     <title>k_rf_p_kad_tmot_min</title>
     <description>k_rf_p_kad_tmot_min E5EC&#013;&#010;&#013;&#010;This parameter specifies the minimum temperature TMOT must be in order for k_rf_p_kad_i (the integrator component of RF based on p_kad (manifold absolute pressure)).</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <EMBEDDEDDATA mmedaddress="0xE5EC" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>&#176;C</units>
     <datatype>0</datatype>
@@ -14777,6 +14922,7 @@
     <title>k_rf_p_kad_n_start_exit_time_min</title>
     <description>k_rf_p_kad_n_start_exit_time_min E5ED&#013;&#010;&#013;&#010;The calculation of k_rf_p_kad_i is only performed if a certain amount of time has passed since the motor reached N_START_EXIT (which is the engine rpm that must be attained in order for the motor to exit the &quot;START&quot; condition and get to the &quot;LL&quot; (idle) condition). This parameter specifies what this time is.</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <EMBEDDEDDATA mmedaddress="0xE5ED" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>s</units>
     <datatype>0</datatype>
@@ -14790,6 +14936,7 @@
     <title>k_rf_p_kad_i_min</title>
     <description>k_rf_p_kad_i_min E5EE&#013;&#010;&#013;&#010;The integral component rf_p_kad_i needs to be limited in order to prevent integrator wind-up conditions. This parameter specifies the minimum (maximum negative) value for rf_p_kad_i.</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <EMBEDDEDDATA mmedtypeflags="0x01" mmedaddress="0xE5EE" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>%rf</units>
     <datatype>0</datatype>
@@ -14803,6 +14950,7 @@
     <title>k_rf_p_kad_i_max</title>
     <description>k_rf_p_kad_i_max E5F0&#013;&#010;&#013;&#010;The integral component rf_p_kad_i needs to be limited in order to prevent integrator wind-up conditions. This parameter specifies the maximum value for rf_p_kad_i.</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <EMBEDDEDDATA mmedtypeflags="0x01" mmedaddress="0xE5F0" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>%rf</units>
     <datatype>0</datatype>
@@ -14816,6 +14964,7 @@
     <title>k_rf_wdk_ed_p_kad_ibegr</title>
     <description>k_rf_wdk_ed_p_kad_ibegr E5F2&#013;&#010;&#013;&#010;In the event that there is a WDK error rf_p_ask_i is ramped to zero at the rate of k_rf_wdk_ed_p_kad_ibegr per 10ms.</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <EMBEDDEDDATA mmedaddress="0xE5F2" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>%rf</units>
     <decimalpl>7</decimalpl>
@@ -14830,6 +14979,7 @@
     <title>kf_rf_p_kad_i_fakt_n_p_kvd</title>
     <description>kf_rf_p_kad_i_fakt_n_p_kvd E63A&#013;&#010;&#013;&#010;The calculation of rf_p_kad_i utilises an interpolation table (this table) to establish the gain of the integral component based on N (rpm) and p_kvd (Manifold Vacuum Pressure).</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE63A" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>rpm</units>
@@ -14858,7 +15008,7 @@
     </XDFAXIS>
     <XDFAXIS id="z">
       <EMBEDDEDDATA mmedaddress="0xE652" mmedelementsizebits="16" mmedrowcount="6" mmedcolcount="6" mmedmajorstridebits="0" mmedminorstridebits="0" />
-      <decimalpl>2</decimalpl>
+      <decimalpl>3</decimalpl>
       <min>0.000000</min>
       <max>255.000000</max>
       <outputtype>1</outputtype>
@@ -14868,13 +15018,15 @@
     </XDFAXIS>
   </XDFTABLE>
   <XDFFUNCTION uniqueid="0x95D" flags="0x0">
-    <title>kl_pressure_from_air_mass_???_0401_DAT0008e6a4</title>
-    <description>kl_pressure_from_air_mass_???_0401_DAT0008e6a4 E6A6</description>
+    <title>kl_egbp_rel</title>
+    <description>kl_egbp_rel E6A6</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="80" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE6A6" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>kg/hr</units>
       <indexcount>8</indexcount>
+      <decimalpl>0</decimalpl>
       <embedinfo type="1" />
       <datatype>0</datatype>
       <unittype>0</unittype>
@@ -14885,8 +15037,9 @@
     </XDFAXIS>
     <XDFAXIS id="y" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE6B6" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
-      <units>pressure</units>
+      <units>mbar</units>
       <indexcount>8</indexcount>
+      <decimalpl>0</decimalpl>
       <embedinfo type="1" />
       <datatype>0</datatype>
       <unittype>0</unittype>
@@ -14897,9 +15050,10 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x5180" flags="0x0">
-    <title>kl_rf_m_720_3_???_0401_DAT0008e6d6</title>
-    <description>kl_rf_m_720_3_???_0401_DAT0008e6d6 E6D8</description>
+    <title>kl_rg_m_???_0401_DAT0008e6d6</title>
+    <description>kl_rg_m_???_0401_DAT0008e6d6 E6D8</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="81" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE6D8" mmedelementsizebits="16" mmedcolcount="12" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>12</indexcount>
@@ -14924,9 +15078,10 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x95E" flags="0x0">
-    <title>kl_rf_m_720_3_???_0401_DAT0008e708</title>
-    <description>kl_rf_m_720_3_???_0401_DAT0008e708 E70A</description>
+    <title>kl_rg_m_???_0401_DAT0008e708</title>
+    <description>kl_rg_m_???_0401_DAT0008e708 E70A</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="81" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE70A" mmedelementsizebits="16" mmedcolcount="10" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>10</indexcount>
@@ -14934,7 +15089,7 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/1000">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
@@ -14951,9 +15106,10 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x95F" flags="0x0">
-    <title>kl_rf_m_720_3_???_0401_DAT0008e732</title>
-    <description>kl_rf_m_720_3_???_0401_DAT0008e732 E734</description>
+    <title>kl_rg_evan1_molmasse</title>
+    <description>kl_rg_evan1_molmasse E734</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="81" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE734" mmedelementsizebits="16" mmedcolcount="12" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>12</indexcount>
@@ -14961,7 +15117,7 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="(X-3000)/10">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
@@ -14978,9 +15134,10 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x5B27" flags="0x0">
-    <title>kl_rf_m_720_3_???_0401_DAT0008e764</title>
-    <description>kl_rf_m_720_3_???_0401_DAT0008e764 E766</description>
+    <title>kl_rg_m_???_0401_DAT0008e764</title>
+    <description>kl_rg_m_???_0401_DAT0008e764 E766</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="81" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE766" mmedelementsizebits="16" mmedcolcount="18" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>18</indexcount>
@@ -15008,6 +15165,7 @@
     <title>kf_tabg_based_on_n_rf_???</title>
     <description>kf_tabg_based_on_n_rf_??? E7B0</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE7B0" mmedelementsizebits="16" mmedcolcount="10" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>rpm</units>
@@ -15035,19 +15193,20 @@
     </XDFAXIS>
     <XDFAXIS id="z">
       <EMBEDDEDDATA mmedaddress="0xE7D0" mmedelementsizebits="16" mmedrowcount="6" mmedcolcount="10" mmedmajorstridebits="0" mmedminorstridebits="0" />
-      <decimalpl>2</decimalpl>
+      <decimalpl>0</decimalpl>
       <min>0.000000</min>
       <max>255.000000</max>
-      <outputtype>1</outputtype>
-      <MATH equation="X">
+      <outputtype>2</outputtype>
+      <MATH equation="X/16">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
   </XDFTABLE>
   <XDFFUNCTION uniqueid="0x960" flags="0x0">
-    <title>kl_rf_tabg_adjustment_???_0401_DAT0008e8fe</title>
-    <description>kl_rf_tabg_adjustment_???_0401_DAT0008e8fe E900</description>
+    <title>kl_tabg_faktor_rf_min</title>
+    <description>kl_tabg_faktor_rf_min E900</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE900" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>rpm</units>
@@ -15074,9 +15233,10 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFCONSTANT uniqueid="0x378E">
-    <title>K_???_0401_DAT0008d202</title>
-    <description>K_???_0401_DAT0008d202 D202</description>
+    <title>k_rf_hfm_aktiv</title>
+    <description>k_rf_hfm_aktiv D202&#013;&#010;&#013;&#010;Defines whether or not RF is to be calculated from HFM.</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <EMBEDDEDDATA mmedaddress="0xD202" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -15863,9 +16023,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x956">
-    <title>K_???_0401_DAT0008d204</title>
-    <description>K_???_0401_DAT0008d204 D204</description>
+    <title>k_kad_sample</title>
+    <description>k_kad_sample D204&#013;&#010;&#013;&#010;The number of valid map sensor ring buffer samples to average</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="77" />
     <EMBEDDEDDATA mmedaddress="0xD204" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -15875,9 +16036,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x7B73">
-    <title>K_???_0401_DAT0008d205</title>
-    <description>K_???_0401_DAT0008d205 D205</description>
+    <title>k_kad_segmente</title>
+    <description>k_kad_segmente D205</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="77" />
     <EMBEDDEDDATA mmedaddress="0xD205" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -15887,9 +16049,9 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x7BBA">
-    <title>K_???_0401_DAT0008d206</title>
-    <description>K_???_0401_DAT0008d206 D206</description>
-    <CATEGORYMEM index="0" category="11" />
+    <title>K_HFM_TI_RATE</title>
+    <description>K_HFM_TI_RATE D206</description>
+    <CATEGORYMEM index="2" category="45" />
     <EMBEDDEDDATA mmedaddress="0xD206" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -15899,9 +16061,9 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x5D8" vislevel="10">
-    <title>K_???_0401_DAT0008d208</title>
-    <description>K_???_0401_DAT0008d208  D208&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Units- &quot;kg/h&quot;  &#013;&#010;Function: Lasterfassung  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
-    <CATEGORYMEM index="0" category="11" />
+    <title>K_HFM_DIAG_ML_MAX</title>
+    <description>K_HFM_DIAG_ML_MAX  D208&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Units- &quot;kg/h&quot;  &#013;&#010;Function: Lasterfassung  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
+    <CATEGORYMEM index="2" category="45" />
     <EMBEDDEDDATA mmedtypeflags="0x01" mmedaddress="0xD208" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <decimalpl>1</decimalpl>
     <rangehigh>1400.000000</rangehigh>
@@ -15914,9 +16076,9 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x5DA" vislevel="10">
-    <title>K_???_0401_DAT0008d20a</title>
-    <description>K_???_0401_DAT0008d20a  D20A&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Units- &quot;kg/h&quot;  &#013;&#010;Function: Lasterfassung  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
-    <CATEGORYMEM index="0" category="11" />
+    <title>K_HFM_DIAG_ML_MIN</title>
+    <description>K_HFM_DIAG_ML_MIN  D20A&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Units- &quot;kg/h&quot;  &#013;&#010;Function: Lasterfassung  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
+    <CATEGORYMEM index="2" category="45" />
     <EMBEDDEDDATA mmedtypeflags="0x01" mmedaddress="0xD20A" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <decimalpl>1</decimalpl>
     <rangehigh>1400.000000</rangehigh>
@@ -16079,9 +16241,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x2B34">
-    <title>K_???_0401_DAT0008d220</title>
-    <description>K_???_0401_DAT0008d220 D220</description>
+    <title>k_aq_rel_wdk_segm_nullage</title>
+    <description>k_aq_rel_wdk_segm_nullage D220&#013;&#010;&#013;&#010;This is a &quot;dead zone&quot; value which if wdk_segm is below this value then treat wdk_segm as zero for the purposes of the aq_rel lookup that follows.</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="56" />
     <EMBEDDEDDATA mmedaddress="0xD220" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -16103,12 +16266,14 @@
     </MATH>
   </XDFCONSTANT>
   <XDFTABLE uniqueid="0x44D1" flags="0x0">
-    <title>KF_???_0401_DAT0008df4a</title>
-    <description>KF_???_0401_DAT0008df4a DF4C</description>
+    <title>kf_rf_alpha_n_tau_up</title>
+    <description>kf_rf_alpha_n_tau_up DF4C</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xDF4C" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>6</indexcount>
+      <outputtype>2</outputtype>
       <embedinfo type="1" />
       <datatype>0</datatype>
       <unittype>0</unittype>
@@ -16124,7 +16289,7 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/1000">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
@@ -16133,16 +16298,43 @@
       <decimalpl>2</decimalpl>
       <min>0.000000</min>
       <max>255.000000</max>
-      <outputtype>1</outputtype>
+      <outputtype>2</outputtype>
       <MATH equation="X">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
   </XDFTABLE>
-  <XDFCONSTANT uniqueid="0x68F1">
-    <title>K_???_0401_DAT0008dfac</title>
-    <description>K_???_0401_DAT0008dfac DFAC</description>
+  <XDFCONSTANT uniqueid="0x1146">
+    <title>K_RF_DIAG_SCHWELLE</title>
+    <description>K_RF_DIAG_SCHWELLE E5F8</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
+    <EMBEDDEDDATA mmedaddress="0xE5F8" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x5A2E">
+    <title>K_RF_DIAG_F_KATH</title>
+    <description>K_RF_DIAG_F_KATH E5F4</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
+    <EMBEDDEDDATA mmedaddress="0xE5F4" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x68F1">
+    <title>k_rf_alpha_n_tau_down</title>
+    <description>k_rf_alpha_n_tau_down DFAC</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="79" />
     <EMBEDDEDDATA mmedaddress="0xDFAC" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -16151,11 +16343,12 @@
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x27A2">
-    <title>K_???_0401_DAT0008e002</title>
-    <description>K_???_0401_DAT0008e002 E002</description>
+  <XDFCONSTANT uniqueid="0x3B02">
+    <title>K_RF_DIAG_F_VAN</title>
+    <description>K_RF_DIAG_F_VAN E5F6</description>
     <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE002" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <CATEGORYMEM index="2" category="79" />
+    <EMBEDDEDDATA mmedaddress="0xE5F6" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -16164,10 +16357,11 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x225E">
-    <title>K_???_0401_DAT0008e003</title>
-    <description>K_???_0401_DAT0008e003 E003</description>
-    <CATEGORYMEM index="0" category="11" />
+    <title>K_FR_T_ADAPT</title>
+    <description>K_FR_T_ADAPT E003</description>
+    <CATEGORYMEM index="2" category="31" />
     <EMBEDDEDDATA mmedaddress="0xE003" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <units>sec</units>
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -16176,9 +16370,9 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x5570">
-    <title>k_aq_rel_???_0401_DAT0008e00e</title>
-    <description>k_aq_rel_???_0401_DAT0008e00e E00E</description>
-    <CATEGORYMEM index="0" category="11" />
+    <title>K_AQ_ABS_MIN</title>
+    <description>K_AQ_ABS_MIN E00E&#013;&#010;&#013;&#010;This is a &quot;dead zone&quot; value which is applied to AQ_ABS. If AQ_ABS is less than this value then AQ_REL is treated as zero.</description>
+    <CATEGORYMEM index="2" category="56" />
     <EMBEDDEDDATA mmedaddress="0xE00E" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -16188,9 +16382,9 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x336E">
-    <title>k_aq_rel_???_0401_DAT0008e010</title>
-    <description>k_aq_rel_???_0401_DAT0008e010 E010</description>
-    <CATEGORYMEM index="0" category="11" />
+    <title>K_AQ_ABS_MAX</title>
+    <description>K_AQ_ABS_MAX E010</description>
+    <CATEGORYMEM index="2" category="56" />
     <EMBEDDEDDATA mmedaddress="0xE010" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -16674,8 +16868,8 @@
     </XDFAXIS>
   </XDFTABLE>
   <XDFTABLE uniqueid="0x347C" flags="0x0">
-    <title>kf_egas_wdk_(flap_open)</title>
-    <description>kf_egas_wdk_(flap_open) 8828</description>
+    <title>kf_egas_wdk_ask</title>
+    <description>kf_egas_wdk_ask 8828</description>
     <CATEGORYMEM index="2" category="26" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0x8828" mmedelementsizebits="16" mmedcolcount="14" mmedmajorstridebits="16" mmedminorstridebits="0" />
@@ -17199,8 +17393,9 @@
     </MATH>
   </XDFCONSTANT>
   <XDFFUNCTION uniqueid="0x17B" flags="0x0">
-    <title>kl_md_???_0401_DAT_00089840</title>
-    <description>kl_md_???_0401_DAT_00089840 9842</description>
+    <title>kl_md_sk_max_p_umg</title>
+    <description>kl_md_sk_max_p_umg 9842</description>
+    <CATEGORYMEM index="0" category="11" />
     <CATEGORYMEM index="2" category="51" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0x9842" mmedelementsizebits="16" mmedcolcount="4" mmedmajorstridebits="16" mmedminorstridebits="0" />
@@ -17209,29 +17404,31 @@
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/32">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
     <XDFAXIS id="y" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0x984A" mmedelementsizebits="16" mmedcolcount="4" mmedmajorstridebits="-32" mmedminorstridebits="0" />
+      <EMBEDDEDDATA mmedaddress="0x984A" mmedelementsizebits="16" mmedcolcount="4" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>4</indexcount>
       <embedinfo type="1" />
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/10">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x7242" flags="0x0">
-    <title>kl_md_ind_???_DAT_0008d002</title>
-    <description>kl_md_ind_???_DAT_0008d002 D004</description>
+    <title>kl_md_can_ed_smg_max</title>
+    <description>kl_md_can_smg_ed_max D004&#013;&#010;&#013;&#010;This curve describes the maximum torque that is to be applied by the Moment Manager in the event that there is an SMG error stored in CAN_ED_SMG. The x axis of the curve is V, and the output is torque in Nm.</description>
     <CATEGORYMEM index="2" category="51" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xD004" mmedelementsizebits="16" mmedcolcount="3" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <units>km/h</units>
       <indexcount>3</indexcount>
+      <decimalpl>0</decimalpl>
       <embedinfo type="1" />
       <datatype>0</datatype>
       <unittype>0</unittype>
@@ -17242,12 +17439,14 @@
     </XDFAXIS>
     <XDFAXIS id="y" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xD00A" mmedelementsizebits="16" mmedcolcount="3" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <units>Nm</units>
       <indexcount>3</indexcount>
+      <decimalpl>1</decimalpl>
       <embedinfo type="1" />
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X">
+      <MATH equation="X/10">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
@@ -20126,33 +20325,6 @@
       </MATH>
     </XDFAXIS>
   </XDFFUNCTION>
-  <XDFFUNCTION uniqueid="0x21A9" flags="0x0">
-    <title>KL_???_0401_DAT0008e012</title>
-    <description>KL_???_0401_DAT0008e012 E014</description>
-    <CATEGORYMEM index="0" category="11" />
-    <XDFAXIS id="x" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xE014" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
-      <indexcount>8</indexcount>
-      <embedinfo type="1" />
-      <datatype>0</datatype>
-      <unittype>0</unittype>
-      <DALINK index="0" />
-      <MATH equation="X">
-        <VAR id="X" />
-      </MATH>
-    </XDFAXIS>
-    <XDFAXIS id="y" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xE024" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
-      <indexcount>8</indexcount>
-      <embedinfo type="1" />
-      <datatype>0</datatype>
-      <unittype>0</unittype>
-      <DALINK index="0" />
-      <MATH equation="X">
-        <VAR id="X" />
-      </MATH>
-    </XDFAXIS>
-  </XDFFUNCTION>
   <XDFCONSTANT uniqueid="0x730" vislevel="10">
     <title>K_FR_ADAPT_TOL</title>
     <description>K_FR_ADAPT_TOL  DFFA&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;Created by find routine V0.55&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Matched Length: 11  MatchRatio: 1.00&#013;&#010;BlockFound: 0 NearbyBlockMatch: -1 Var: 1840 HasDuplicate?: No &#013;&#010;Units- &quot;-&quot;  &#013;&#010;Function: FUELLUNGSREGLER  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
@@ -20212,20 +20384,6 @@
     <unittype>0</unittype>
     <DALINK index="0" />
     <MATH equation="x/(40*32)">
-      <VAR id="x" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x72E" vislevel="10">
-    <title>K_FR_T_ADAPT</title>
-    <description>K_FR_T_ADAPT  E002&#013;&#010;HW:211 Version:211325000401PD11&#013;&#010;Created by find routine V0.55&#013;&#010;BMWFlash/Galleto File Orientation [Slave Master]&#013;&#010;Matched Length: 11  MatchRatio: 1.00&#013;&#010;BlockFound: 0 NearbyBlockMatch: -1 Var: 1838 HasDuplicate?: No &#013;&#010;Units- &quot;sec&quot;  &#013;&#010;Function: FUELLUNGSREGLER  SizeChange: 0 &#013;&#010;Description: None &#013;&#010;&#013;&#010;</description>
-    <CATEGORYMEM index="2" category="31" />
-    <EMBEDDEDDATA mmedaddress="0xE002" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <units>&quot;sec&quot;</units>
-    <rangehigh>655.000000</rangehigh>
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="x*0.01">
       <VAR id="x" />
     </MATH>
   </XDFCONSTANT>
@@ -20801,9 +20959,10 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFCONSTANT uniqueid="0x4ACB">
-    <title>K_???_0401_DAT0008e088</title>
-    <description>K_???_0401_DAT0008e088 E088</description>
+    <title>k_p_kad_error_max</title>
+    <description>k_p_kad_error_max E088</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="77" />
     <EMBEDDEDDATA mmedaddress="0xE088" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -20813,9 +20972,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x7FC3">
-    <title>K_???_0401_DAT0008e08a</title>
-    <description>K_???_0401_DAT0008e08a E08A</description>
+    <title>k_p_kad_error_min</title>
+    <description>k_p_kad_error_min E08A</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="77" />
     <EMBEDDEDDATA mmedtypeflags="0x01" mmedaddress="0xE08A" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -20825,9 +20985,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x95C">
-    <title>K_???_0401_DAT0008e08c</title>
-    <description>K_???_0401_DAT0008e08c E08C</description>
+    <title>k_p_kad_tau</title>
+    <description>k_p_kad_tau E08C</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="77" />
     <EMBEDDEDDATA mmedaddress="0xE08C" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -20837,9 +20998,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x196C">
-    <title>K_???_0401_DAT0008e08d</title>
-    <description>K_???_0401_DAT0008e08d E08D</description>
+    <title>k_p_kad_m_cfg</title>
+    <description>k_p_kad_m_cfg E08D</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="77" />
     <EMBEDDEDDATA mmedaddress="0xE08D" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -20849,9 +21011,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFTABLE uniqueid="0x66EB" flags="0x0">
-    <title>KF_???_0401_DAT0008e42a</title>
-    <description>KF_???_0401_DAT0008e42a E42C&#013;&#010;&#013;&#010;x:axis n (rpm)&#013;&#010;y: axis rf</description>
+    <title>KF_RG_M</title>
+    <description>KF_RG_M E42C&#013;&#010;&#013;&#010;x:axis n (rpm)&#013;&#010;y: axis rf</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="81" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE42C" mmedelementsizebits="16" mmedcolcount="16" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>rpm</units>
@@ -20889,42 +21052,6 @@
       </MATH>
     </XDFAXIS>
   </XDFTABLE>
-  <XDFCONSTANT uniqueid="0x5A2E">
-    <title>K_???_0401_DAT0008e5f4</title>
-    <description>K_???_0401_DAT0008e5f4 E5F4</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE5F4" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x3B02">
-    <title>K_???_0401_DAT0008e5f6</title>
-    <description>K_???_0401_DAT0008e5f6 E5F6</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE5F6" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x1146">
-    <title>K_???_0401_DAT0008e5f8</title>
-    <description>K_???_0401_DAT0008e5f8 E5F8</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE5F8" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x5EC3">
     <title>K_???_0401_DAT0008e5fa</title>
     <description>K_???_0401_DAT0008e5fa E5FA</description>
@@ -20938,9 +21065,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x50B1">
-    <title>K_???_0401_DAT0008e5fc</title>
-    <description>K_???_0401_DAT0008e5fc E5FC</description>
+    <title>k_d_pwg_max</title>
+    <description>k_d_pwg_max E5FC</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="50" />
     <EMBEDDEDDATA mmedaddress="0xE5FC" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -20950,9 +21078,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x38E4">
-    <title>K_???_0401_DAT0008e5fe</title>
-    <description>K_???_0401_DAT0008e5fe E5FE</description>
+    <title>k_rf_sk_wdk_ed_tau</title>
+    <description>k_rf_sk_wdk_ed_tau E5FE</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="79" />
     <EMBEDDEDDATA mmedaddress="0xE5FE" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -20962,9 +21091,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x2CF8">
-    <title>K_???_0401_DAT0008e600</title>
-    <description>K_???_0401_DAT0008e600 E600</description>
+    <title>k_laa_regler_min</title>
+    <description>k_laa_regler_min E600</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="41" />
     <EMBEDDEDDATA mmedaddress="0xE600" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -20974,9 +21104,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x1FBC">
-    <title>K_???_0401_DAT0008e602</title>
-    <description>K_???_0401_DAT0008e602 E602</description>
+    <title>k_laa_regler_max</title>
+    <description>k_laa_regler_max E602</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="41" />
     <EMBEDDEDDATA mmedaddress="0xE602" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -20985,24 +21116,115 @@
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
-  <XDFFUNCTION uniqueid="0x7DF9" flags="0x0">
-    <title>KL_???_0401_DAT0008e604</title>
-    <description>KL_???_0401_DAT0008e604 E606</description>
+  <XDFCONSTANT uniqueid="0x26B8">
+    <title>k_rg_m_cfg</title>
+    <description>k_rg_m_cfg E6C6</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="81" />
+    <EMBEDDEDDATA mmedaddress="0xE6C6" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x5075">
+    <title>k_rg_m_min</title>
+    <description>k_rg_m_min E6CE</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="81" />
+    <EMBEDDEDDATA mmedaddress="0xE6CE" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x5885">
+    <title>k_rg_m_max</title>
+    <description>k_rg_m_max E6D0</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="81" />
+    <EMBEDDEDDATA mmedaddress="0xE6D0" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x6A68">
+    <title>K_RG_R</title>
+    <description>K_RG_R E6C8</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="81" />
+    <EMBEDDEDDATA mmedaddress="0xE6C8" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x5273">
+    <title>k_rg_avan_offset</title>
+    <description>k_rg_avan_offset E6D2</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="81" />
+    <EMBEDDEDDATA mmedaddress="0xE6D2" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x7DDD">
+    <title>K_RG_V_HUB</title>
+    <description>K_RG_V_HUB  E6CA</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="81" />
+    <EMBEDDEDDATA mmedaddress="0xE6CA" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x68A7">
+    <title>K_RG_ZYLANZ_BANK</title>
+    <description>K_RG_ZYLANZ_BANK E6CC</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="81" />
+    <EMBEDDEDDATA mmedaddress="0xE6CC" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFFUNCTION uniqueid="0x4AE8" flags="0x0">
+    <title>KL_???_0401_DAT0008e61e</title>
+    <description>KL_???_0401_DAT0008e61e E620</description>
     <CATEGORYMEM index="0" category="11" />
     <XDFAXIS id="x" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xE606" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
-      <units>pressure</units>
+      <EMBEDDEDDATA mmedaddress="0xE620" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <units>Pressure</units>
       <indexcount>6</indexcount>
       <embedinfo type="1" />
       <datatype>0</datatype>
       <unittype>0</unittype>
       <DALINK index="0" />
-      <MATH equation="X/32">
+      <MATH equation="X">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
     <XDFAXIS id="y" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xE612" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
+      <EMBEDDEDDATA mmedaddress="0xE62C" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>6</indexcount>
       <embedinfo type="1" />
       <datatype>0</datatype>
@@ -21013,11 +21235,12 @@
       </MATH>
     </XDFAXIS>
   </XDFFUNCTION>
-  <XDFCONSTANT uniqueid="0x26B8">
-    <title>K_???_0401_DAT0008e6c6</title>
-    <description>K_???_0401_DAT0008e6c6 E6C^</description>
+  <XDFCONSTANT uniqueid="0x280B">
+    <title>k_m_gaskonstante</title>
+    <description>k_m_gaskonstante E69A&#013;&#010;&#013;&#010;Specific gas constant of dry air</description>
     <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE6C6" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <CATEGORYMEM index="2" category="81" />
+    <EMBEDDEDDATA mmedaddress="0xE69A" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -21025,11 +21248,12 @@
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x6A68">
-    <title>K_???_0401_DAT0008e6c8</title>
-    <description>K_???_0401_DAT0008e6c8 E6C8</description>
+  <XDFCONSTANT uniqueid="0x1C31">
+    <title>k_p_kvd_tetv_scalar</title>
+    <description>k_p_kvd_tetv_scalar E69C</description>
     <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE6C8" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <CATEGORYMEM index="2" category="77" />
+    <EMBEDDEDDATA mmedaddress="0xE69C" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -21037,11 +21261,14 @@
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x7DDD">
-    <title>K_???_0401_DAT0008e6ca</title>
-    <description>K_???_0401_DAT0008e6ca E6CA</description>
+  <XDFCONSTANT uniqueid="0x15BD">
+    <title>k_p_egbp_tau</title>
+    <description>k_p_egbp_tau E69E</description>
     <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE6CA" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <CATEGORYMEM index="2" category="80" />
+    <EMBEDDEDDATA mmedaddress="0xE69E" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <outputtype>2</outputtype>
+    <decimalpl>1</decimalpl>
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -21049,11 +21276,40 @@
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x68A7">
-    <title>K_???_0401_DAT0008e6cc</title>
-    <description>K_???_0401_DAT0008e6cc E6CC</description>
+  <XDFCONSTANT uniqueid="0x1ACE">
+    <title>k_p_egbp_min</title>
+    <description>k_p_egbp_min E6A0</description>
     <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE6CC" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <CATEGORYMEM index="2" category="80" />
+    <EMBEDDEDDATA mmedaddress="0xE6A0" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <units>mbar</units>
+    <decimalpl>0</decimalpl>
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X/32">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x7210">
+    <title>k_p_egpb_max</title>
+    <description>k_p_egpb_max E6A2</description>
+    <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="80" />
+    <EMBEDDEDDATA mmedaddress="0xE6A2" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <units>mbar</units>
+    <decimalpl>0</decimalpl>
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X/32">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0xB89">
+    <title>K_???_DAT_0008e706</title>
+    <description>K_???_DAT_0008e706 6706</description>
+    <EMBEDDEDDATA mmedaddress="0x6706" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -21061,11 +21317,10 @@
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x5075">
-    <title>K_???_0401_DAT0008e6ce</title>
-    <description>K_???_0401_DAT0008e6ce E6CE</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE6CE" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+  <XDFCONSTANT uniqueid="0x6E8E">
+    <title>K_???_DAT_0008e707</title>
+    <description>K_???_DAT_0008e707 6707</description>
+    <EMBEDDEDDATA mmedaddress="0x6707" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -21073,35 +21328,12 @@
       <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x5885">
-    <title>K_???_0401_DAT0008e6d0</title>
-    <description>K_???_0401_DAT0008e6d0 E6D0</description>
+  <XDFCONSTANT uniqueid="0x5EBD">
+    <title>K_rf_tabg_???_0401_DAT0008e918</title>
+    <description>K_rf_tabg_???_0401_DAT0008e918 E918</description>
     <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE6D0" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x5273">
-    <title>K_???_0401_DAT0008e6d2</title>
-    <description>K_???_0401_DAT0008e6d2 E6D2</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE6D2" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x3F6F">
-    <title>K_???_0401_DAT0008e6d4</title>
-    <description>K_???_0401_DAT0008e6d4 E6D4</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE6D4" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <CATEGORYMEM index="1" category="79" />
+    <EMBEDDEDDATA mmedaddress="0xE918" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
     <DALINK index="0" />
@@ -21110,9 +21342,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFTABLE uniqueid="0x5814" flags="0x0">
-    <title>KF_???_0401_DAT0008e848</title>
-    <description>KF_???_0401_DAT0008e848 E84A</description>
+    <title>KF_RF_KORR_DRREL</title>
+    <description>KF_RF_KORR_DRREL E84A</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="79" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0xE84A" mmedelementsizebits="16" mmedcolcount="12" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <indexcount>12</indexcount>
@@ -21146,132 +21379,11 @@
       </MATH>
     </XDFAXIS>
   </XDFTABLE>
-  <XDFFUNCTION uniqueid="0x4AE8" flags="0x0">
-    <title>KL_???_0401_DAT0008e61e</title>
-    <description>KL_???_0401_DAT0008e61e E620</description>
-    <CATEGORYMEM index="0" category="11" />
-    <XDFAXIS id="x" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xE620" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
-      <units>Pressure</units>
-      <indexcount>6</indexcount>
-      <embedinfo type="1" />
-      <datatype>0</datatype>
-      <unittype>0</unittype>
-      <DALINK index="0" />
-      <MATH equation="X">
-        <VAR id="X" />
-      </MATH>
-    </XDFAXIS>
-    <XDFAXIS id="y" uniqueid="0x0">
-      <EMBEDDEDDATA mmedaddress="0xE62C" mmedelementsizebits="16" mmedcolcount="6" mmedmajorstridebits="16" mmedminorstridebits="0" />
-      <indexcount>6</indexcount>
-      <embedinfo type="1" />
-      <datatype>0</datatype>
-      <unittype>0</unittype>
-      <DALINK index="0" />
-      <MATH equation="X">
-        <VAR id="X" />
-      </MATH>
-    </XDFAXIS>
-  </XDFFUNCTION>
-  <XDFCONSTANT uniqueid="0x280B">
-    <title>K_???_0401_DAT0008e69a</title>
-    <description>K_???_0401_DAT0008e69a E69A</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE69A" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x1C31">
-    <title>K_???_0401_DAT0008e69c</title>
-    <description>K_???_0401_DAT0008e69c E69C</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE69C" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x15BD">
-    <title>K_???_0401_DAT0008e69e</title>
-    <description>K_???_0401_DAT0008e69e E69E</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE69E" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x1ACE">
-    <title>K_???_0401_DAT0008e6a0</title>
-    <description>K_???_0401_DAT0008e6a0 E6A0</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE6A0" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x7210">
-    <title>K_???_0401_DAT0008e6a2</title>
-    <description>K_???_0401_DAT0008e6a2 E6A2</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE6A2" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0xB89">
-    <title>K_???_DAT_0008e706</title>
-    <description>K_???_DAT_0008e706 6706</description>
-    <EMBEDDEDDATA mmedaddress="0x6706" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x6E8E">
-    <title>K_???_DAT_0008e707</title>
-    <description>K_???_DAT_0008e707 6707</description>
-    <EMBEDDEDDATA mmedaddress="0x6707" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
-  <XDFCONSTANT uniqueid="0x5EBD">
-    <title>K_???_0401_DAT0008e918</title>
-    <description>K_???_0401_DAT0008e918 E918</description>
-    <CATEGORYMEM index="0" category="11" />
-    <EMBEDDEDDATA mmedaddress="0xE918" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <datatype>0</datatype>
-    <unittype>0</unittype>
-    <DALINK index="0" />
-    <MATH equation="X">
-      <VAR id="X" />
-    </MATH>
-  </XDFCONSTANT>
   <XDFCONSTANT uniqueid="0x1911">
-    <title>K_???_0401_DAT0008e91a</title>
-    <description>K_???_0401_DAT0008e91a E91A</description>
+    <title>k_rf_tabg_adjustment_v_min</title>
+    <description>k_rf_tabg_adjustment_v_min E91A</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="79" />
     <EMBEDDEDDATA mmedaddress="0xE91A" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -27627,6 +27739,7 @@
     <title>k_ask_zustand_config</title>
     <description>k_ask_zustand_config 21DF&#013;&#010;&#013;&#010;Config byte to configure the behaviour of the function which opens and closes the CSL intake flap.</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="78" />
     <EMBEDDEDDATA mmedaddress="0x21DF" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -27720,6 +27833,7 @@
     <title>k_ask_ml_min</title>
     <description>k_ask_ml_min 2202&#013;&#010;&#013;&#010;The minimum ML that ML must be above in order for the CSL Intake Flap to open</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="78" />
     <EMBEDDEDDATA mmedaddress="0x2202" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -27729,9 +27843,10 @@
     </MATH>
   </XDFCONSTANT>
   <XDFFUNCTION uniqueid="0x4711" vislevel="10" flags="0x0">
-    <title>KL_(CSL_Flap_Open_Sport)_0401_DAT0008a206</title>
-    <description>KL_(CSL_Flap_Open_Sport)_0401_DAT0008a206 2208</description>
+    <title>kl_ask_sport</title>
+    <description>kl_ask_sport 2208</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="78" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0x2208" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>&quot;-&quot;</units>
@@ -27759,9 +27874,10 @@
     </XDFAXIS>
   </XDFFUNCTION>
   <XDFFUNCTION uniqueid="0x1E28" vislevel="10" flags="0x0">
-    <title>KL_(CSL_Flap_Open_Komfort)_0401_DAT0008a228</title>
-    <description>KL_(CSL_Flap_Open_Komfort)_0401_DAT0008a228 222A</description>
+    <title>kl_ask_komfort</title>
+    <description>kl_ask_komfort 222A</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="78" />
     <XDFAXIS id="x" uniqueid="0x0">
       <EMBEDDEDDATA mmedaddress="0x222A" mmedelementsizebits="16" mmedcolcount="8" mmedmajorstridebits="16" mmedminorstridebits="0" />
       <units>&quot;-&quot;</units>
@@ -27814,6 +27930,7 @@
     <title>k_ask_n_aktiv_tol</title>
     <description>k_ask_n_aktiv_tol 224A&#013;&#010;&#013;&#010;Configures the tolerance around the RPM at which the CSL intake flap is to open.</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="78" />
     <EMBEDDEDDATA mmedaddress="0x224A" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <units>rpm</units>
     <outputtype>2</outputtype>
@@ -27829,6 +27946,7 @@
     <title>k_ask_zustand_hys</title>
     <description>k_ask_zustand_hys 224C&#013;&#010;&#013;&#010;Hysteresis value that sets the number of times ask_zustand_calc needs to run in order to trigger a changing of CSL Intake Flap location. Still to determine how frequently the function runs and therefore the conversion factor for this parameter</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="78" />
     <EMBEDDEDDATA mmedaddress="0x224C" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -27984,6 +28102,7 @@
     <title>k_ask_t_umg_min</title>
     <description>k_ask_t_umg_min 2251&#013;&#010;&#013;&#010;The minimum ambient temperature that T_UMG must be above in order for the CSL Intake Flap to open</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="78" />
     <EMBEDDEDDATA mmedaddress="0x2251" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -27996,6 +28115,7 @@
     <title>k_ask_???_DAT0008a255</title>
     <description>k_ask_???_DAT0008a255 2255</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="78" />
     <EMBEDDEDDATA mmedaddress="0x2255" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -28008,6 +28128,7 @@
     <title>k_ask_???_DAT0008a256</title>
     <description>k_ask_???_DAT0008a256 2256</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="2" category="78" />
     <EMBEDDEDDATA mmedaddress="0x2256" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -28020,6 +28141,7 @@
     <title>k_ask_???_DAT0008a258</title>
     <description>k_ask_???_DAT0008a258 2258</description>
     <CATEGORYMEM index="0" category="11" />
+    <CATEGORYMEM index="1" category="78" />
     <EMBEDDEDDATA mmedaddress="0x2258" mmedelementsizebits="8" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -53884,6 +54006,18 @@
     <DALINK index="0" />
     <MATH equation="x">
       <VAR id="x" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x2378">
+    <title>K_HFM_ML_SEG_MIN</title>
+    <description>K_HFM_ML_SEG_MIN E5E6</description>
+    <CATEGORYMEM index="2" category="45" />
+    <EMBEDDEDDATA mmedaddress="0xE5E6" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
     </MATH>
   </XDFCONSTANT>
 </XDFFORMAT>
